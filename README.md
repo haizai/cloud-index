@@ -1,6 +1,7 @@
 # cloud-index
 
 > index from Vue
+> 主页重构
 
 ## Build Setup
 
