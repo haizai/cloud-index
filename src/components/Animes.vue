@@ -64,7 +64,7 @@
 
 <script>
 export default {
-  name: 'todos',
+  name: 'animes',
   data() {
     return {
       hover1: false,
@@ -85,7 +85,7 @@ export default {
 <style> 
   .animes {
     text-align: center;
-    padding: 80px 0;
+    padding-top: 80px;
   }
   .animes-title {
     font-size: 24px;
@@ -246,7 +246,7 @@ export default {
       justify-content: center;
     }
     .animes-item {
-      width: 49vw;
+      width: 48vw;
       height: 69vw;
     }
     .animes-item-title {

@@ -3,6 +3,7 @@
     <Nav_/>
     <Todos/>
     <Animes/>
+    <Gomoku/>
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 import Nav_ from './components/Nav'
 import Todos from './components/Todos'
 import Animes from './components/Animes'
+import Gomoku from './components/Gomoku'
 
 export default {
   name: 'container',
@@ -19,6 +21,7 @@ export default {
     Nav_,
     Todos,
     Animes,
+    Gomoku,
   },
 }
 </script>
