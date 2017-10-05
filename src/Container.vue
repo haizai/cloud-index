@@ -2,8 +2,8 @@
   <div class="container">
     <Nav_/>
     <Todos/>
-    <Animes/>
     <Gomoku/>
+    <Animes/>
   </div>
 </template>
 
