@@ -75,7 +75,6 @@ export default {
   },
   watch: {
     active(val) {
-      console.log(val)
       switch (val) {
         case 's':
           this.barLeft = '0%'
