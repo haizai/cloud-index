@@ -35,13 +35,16 @@ export default {
   		caroId: 1,
   		maxId: 5,
   		hoverId: '',
+  		timer: null,
   	}
   },
   methods:{
   	toLeft(){
+  		this.resetTimer()
   		this.caroId > 1 ? this.caroId-- : this.caroId = this.maxId
   	},
   	toRight(){
+  		this.resetTimer()
   		this.caroId < this.maxId ? this.caroId++ : this.caroId = 1
   	},
   	barEnter(n){
@@ -51,9 +54,22 @@ export default {
   		this.hoverId = ""
   	},
   	toIndex(n) {
+  		this.resetTimer()
   		this.caroId = n
+  	},
+  	resetTimer(){
+  		clearTimeout(this.timer)
+  		this.move()
+  	},
+  	move(){
+	  	this.timer = setInterval(()=>{
+	  		this.toRight()
+	  	}, 2000)
   	}
   },
+  created(){
+  	this.move()
+  }
 }
 </script>
 
@@ -115,4 +131,29 @@ export default {
 	.caro-bar-item-active {
 		background: #fff;
 	}
+
+  @media screen and (max-width: 1000px) {
+		.caro-item {
+			width: 100%;
+		}
+  }
+  @media screen and (max-width: 800px) {
+		.caro-item {
+			width: 100%;
+		}
+		.caro-icon {
+			display: none;
+		}
+		.caro-bar-item {
+			width: 10px;
+			height: 10px;
+		}
+		.caro-bar-item-div {
+			width: 6px;
+			height: 6px;
+			border-radius: 3px;
+			top: 2px;
+			left: 2px;
+		}
+  }
 </style>
