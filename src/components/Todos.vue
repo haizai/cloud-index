@@ -41,7 +41,7 @@ export default {
   .todos {
     text-align: center;
     padding: 80px 0;
-    background: #f5f5f5;
+    background: #fff;
   }
   .todos-title {
     font-size: 24px;

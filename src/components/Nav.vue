@@ -66,7 +66,10 @@ export default {
   		gameIn: false,
   		gomokuIn: false,
   	}
-  }
+  },
+  watch:{
+
+  },
 }
 </script>
 
@@ -112,8 +115,9 @@ export default {
 		border-radius: 5px;
 		transition: all 0.3s;
 		width: 150%;
+		z-index: 100;
 	}
-	.nav-pc-tem-name-hover, .nav-pc-item-more p:hover {
+	.nav-pc-item-name-hover, .nav-pc-item-more p:hover {
 		color: #1296db;
 	}
 	

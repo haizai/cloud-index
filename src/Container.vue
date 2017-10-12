@@ -2,6 +2,7 @@
   <div class="container">
     <Nav_/>
     <Carousel/>
+    <Sect/>
     <Todos/>
     <Gomoku/>
     <Game/>  
@@ -20,6 +21,7 @@ import Gomoku from './components/Gomoku'
 import Game from './components/Game'
 import Foot from './components/Foot'
 import Carousel from './components/Carousel'
+import Sect from './components/Sect'
 
 export default {
   name: 'container',
@@ -31,6 +33,7 @@ export default {
     Game,
     Gomoku,
     Foot,
+    Sect,
   },
 }
 </script>

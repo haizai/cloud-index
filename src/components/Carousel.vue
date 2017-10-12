@@ -64,7 +64,7 @@ export default {
   	move(){
 	  	this.timer = setInterval(()=>{
 	  		this.toRight()
-	  	}, 2000)
+	  	}, 3000)
   	}
   },
   created(){
@@ -81,7 +81,7 @@ export default {
 		color: #fff;
 	}
 	.caro-item {
-		width: 1000px;
+		width: 1200px;
 		margin: 0 auto;
 		height: 400px;
 	}
