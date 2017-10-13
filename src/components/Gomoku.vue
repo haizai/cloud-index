@@ -40,20 +40,20 @@
         单人模式，黑白左右互搏。<br>
         背景由canvans绘制，棋盘由15×15的格子标签构成。<br>
         能正确判断胜负，支持悔棋等操作，是之后联机模式和人机对战的基础。<br>
-        <span class="gomoku-more">游玩单人模式</span>
+        <a href="/gomoku#/outline" class="gomoku-more">游玩单人模式</a>
       </div>
       <div class="gomoku-cont-item" v-show="active == 'd'">
         联机模式，双人通关互联网对战。<br>
         首先需要在本站注册/登录之后才能进行对战<br>
         使用socket进行实时的联机及前后端交互<br>
         除了正常的落子，还有求和，悔棋，认输等联机交互。<br>
-        <span class="gomoku-more">游玩联机模式</span>
+        <a href="/gomoku#/online" class="gomoku-more">游玩联机模式</a>
       </div>
       <div class="gomoku-cont-item" v-show="active == 'a'">
         人机对战，自制简易AI。<br>
         用一套自制的估值函数，使用极大极小值算法，并进行AlphaBeta剪枝<br>
         由于性能与优化问题，只计算未来2步<br>
-        <span class="gomoku-more">游玩人机对战</span>
+        <a href="/gomoku#/ai" class="gomoku-more">游玩人机对战</a>
       </div>
     </div>
   </div>

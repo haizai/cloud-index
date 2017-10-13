@@ -2,18 +2,24 @@
   <div class="todos">
     <h2 class="todos-title">Todos —— 最合适的新框架入门demo</h2>
     <p class="todos-info">增加，删除，选中，编辑，筛选，批量操作等</p>
-    <div class="todos-item" @mouseenter="jQueryHover = true" @mouseleave="jQueryHover = false">
-      <i class="icon-jquery" :class="{'icon-jquery-hover':jQueryHover}"></i>
-      <span :style="jQueryHover?styleHover:styleNormal">jQuery Todos</span>
-    </div>
-    <div class="todos-item" @mouseenter="reactHover = true" @mouseleave="reactHover = false">
-      <i class="icon-react" :class="{'icon-react-hover':reactHover}"></i>
-      <span :style="reactHover?styleHover:styleNormal">React Todos</span>
-    </div>
-    <div class="todos-item" @mouseenter="vueHover = true" @mouseleave="vueHover = false">
-      <i class="icon-vue" :class="{'icon-vue-hover':vueHover}"></i>
-      <span :style="vueHover?styleHover:styleNormal">Vue Todos</span>
-    </div>
+    <a href="/demo/jquery-todos/todos.html" target="_blank">
+      <div class="todos-item" @mouseenter="jQueryHover = true" @mouseleave="jQueryHover = false">
+        <i class="icon-jquery" :class="{'icon-jquery-hover':jQueryHover}"></i>
+        <span :style="jQueryHover?styleHover:styleNormal">jQuery Todos</span>
+      </div>
+    </a>
+    <a href="/demo/react-todos/index.html" target="_blank">
+      <div class="todos-item" @mouseenter="reactHover = true" @mouseleave="reactHover = false">
+        <i class="icon-react" :class="{'icon-react-hover':reactHover}"></i>
+        <span :style="reactHover?styleHover:styleNormal">React Todos</span>
+      </div>
+    </a>
+    <a href="demo/vuex-todos/index.html" target="_blank">
+      <div class="todos-item" @mouseenter="vueHover = true" @mouseleave="vueHover = false">
+        <i class="icon-vue" :class="{'icon-vue-hover':vueHover}"></i>
+        <span :style="vueHover?styleHover:styleNormal">Vue Todos</span>
+      </div>
+    </a>
   </div>
 </template>
 

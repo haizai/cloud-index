@@ -6,23 +6,24 @@
 	    	<li class="nav-pc-item" @mouseenter="cssHover = true" @mouseleave="cssHover = false">
 	    		<span :class="{'nav-pc-item-name-hover':cssHover}">css案例</span>
 	    		<div class="nav-pc-item-more" v-show="cssHover">
-	    			<p>flex布局</p>
-	    			<p>transform矩阵变换</p>
+	    			<a href="/demo/flex/flex.html" target="_blank"><p>flex布局</p></a>
+	    			<a href="/demo/transform/dist/index.html" target="_blank"><p>transform矩阵变换</p></a>
+	    			<a href="/demo/center/center.html" target="_blank"><p>水平垂直居中</p></a>
 	    		</div>
 	    	</li>
 	    	<li class="nav-pc-item" @mouseenter="gameHover = true" @mouseleave="gameHover = false">
 	    		<span :class="{'nav-pc-item-name-hover':gameHover}">小游戏</span>
 	    		<div class="nav-pc-item-more" v-show="gameHover">
-	    			<p>扫雷</p>
-	    			<p>推箱子</p>
+	    			<a href="/demo/sokoban/game.html" target="_blank"><p>扫雷</p></a>
+	    			<a href="/demo/minesweeper/game.html" target="_blank"><p>推箱子</p></a>
 	    		</div>
 	    	</li>
 	    	<li class="nav-pc-item" @mouseenter="gomokuHover = true" @mouseleave="gomokuHover = false">
 	    		<span :class="{'nav-pc-item-name-hover':gomokuHover}">五子棋</span>
 	    		<div class="nav-pc-item-more" v-show="gomokuHover">
-	    			<p>单人模式</p>
-	    			<p>联机模式</p>
-	    			<p>人机对战</p>
+	    			<a href="/gomoku#/outline"><p>单人模式</p></a>
+	    			<a href="/gomoku#/online"><p>联机模式</p></a>
+	    			<a href="/gomoku#/ai"><p>人机对战</p></a>
 	    		</div>
 	    	</li>
 	    	<li>登录</li>
@@ -116,6 +117,9 @@ export default {
 		transition: all 0.3s;
 		width: 150%;
 		z-index: 100;
+	}
+	.nav-pc-item-more p {
+		color: #eee;
 	}
 	.nav-pc-item-name-hover, .nav-pc-item-more p:hover {
 		color: #1296db;

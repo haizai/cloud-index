@@ -3,8 +3,8 @@
     <h2 class="animes-title">动画爬虫及数据展现</h2>
     <p class="animes-info">数据来源 —— <a href="">2016年11月豆瓣爬虫</a></p>
     <div class="animes-search">
-      <input type="text" placeholder="动画名称，导演，声优等" class="animes-input-keyword">
-      <input type="button" value="搜索" class="animes-input-search">
+      <input type="text" placeholder="动画名称，导演，声优等" class="animes-input-keyword" v-model="keyword" @keydown.enter="search()">
+      <input type="button" value="搜索" class="animes-input-search" @click="search()">
     </div>
     <div class="animes-box-container">
       <div class="animes-box">
@@ -15,7 +15,7 @@
           <p class="animes-item-info" :class="{'animes-item-info-hover':hover1}">「名探偵コナン」
           <br>青山刚昌创作的侦探漫画改编</p>
           <p class="animes-item-more" :class="{'animes-item-more-hover':hover1}">
-            <a href="">查看详情</a>
+            <a href="/animes#/1463371">查看详情</a>
           </p>
         </div>
         <div class="animes-item" @mouseenter="hover2 = true" @mouseleave="hover2 = false">
@@ -24,7 +24,7 @@
           <h3 class="animes-item-title" :class="{'animes-item-title-hover':hover2}">新世纪福音战士</h3>
           <p class="animes-item-info" :class="{'animes-item-info-hover':hover2}">「新世紀エヴァンゲリオン」<br>由龙之子工作室、GAINAX共同制作</p>
           <p class="animes-item-more" :class="{'animes-item-more-hover':hover2}">
-            <a href="">查看详情</a>
+            <a href="/animes#/1457573">查看详情</a>
           </p>
         </div>
         <div class="animes-item" @mouseenter="hover3 = true" @mouseleave="hover3 = false">
@@ -34,7 +34,7 @@
           <p class="animes-item-info" :class="{'animes-item-info-hover':hover3}">「あの日見た花の名前を
           <br>僕達はまだ知らない。」</p>
           <p class="animes-item-more" :class="{'animes-item-more-hover':hover3}">
-            <a href="">查看详情</a>
+            <a href="/animes#/5397537">查看详情</a>
           </p>
         </div>
         <div class="animes-item" @mouseenter="hover4 = true" @mouseleave="hover4 = false">
@@ -44,7 +44,7 @@
           <p class="animes-item-info" :class="{'animes-item-info-hover':hover4}">「コードギアス 反逆のルルーシュ」
           <br>SUNRISE制作的原创动画</p>
           <p class="animes-item-more" :class="{'animes-item-more-hover':hover4}">
-            <a href="">查看详情</a>
+            <a href="/animes#/2043155">查看详情</a>
           </p>
         </div>
         <div class="animes-item" @mouseenter="hover5 = true" @mouseleave="hover5 = false">
@@ -54,7 +54,7 @@
           <p class="animes-item-info" :class="{'animes-item-info-hover':hover5}">「魔法少女まどか☆マギカ」
           <br>新房昭之执导的原创动画</p>
           <p class="animes-item-more" :class="{'animes-item-more-hover':hover5}">
-            <a href="">查看详情</a>
+            <a href="/animes#/5349275">查看详情</a>
           </p>
         </div>
       </div>
@@ -72,11 +72,15 @@ export default {
       hover3: false,
       hover4: false,
       hover5: false,
+      keyword: '',
     }
   },
   methods:{
     log(){
       console.log(this)
+    },
+    search(){
+      document.location = `/animes#/?keyword=${this.keyword}&page=1&range=default&sort=count`
     }
   }
 }
