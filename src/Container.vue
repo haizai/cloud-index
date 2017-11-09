@@ -1,12 +1,7 @@
 <template>
   <div class="container">
     <Nav_/>
-    <Carousel/>
-    <Sect/>
-    <Todos/>
-    <Gomoku/>
-    <Game/>  
-    <Animes/>
+    <router-view></router-view>
     <Foot/>
   </div>
 </template>
@@ -15,25 +10,13 @@
 
 
 import Nav_ from './components/Nav'
-import Todos from './components/Todos'
-import Animes from './components/Animes'
-import Gomoku from './components/Gomoku'
-import Game from './components/Game'
 import Foot from './components/Foot'
-import Carousel from './components/Carousel'
-import Sect from './components/Sect'
 
 export default {
   name: 'container',
   components: {
     Nav_,
-    Carousel,
-    Todos,
-    Animes,
-    Game,
-    Gomoku,
     Foot,
-    Sect,
   },
 }
 </script>
