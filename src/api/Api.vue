@@ -1,12 +1,12 @@
 <template>
   <div id="api">
-    <String_/>
+    <String_/> 
   </div>
 </template>
 
 <script>
 
-import String_ from './String'
+import String_ from './String.vue'
 
 export default {
   name: 'api',
