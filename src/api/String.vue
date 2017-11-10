@@ -4,7 +4,13 @@
 
 
     <div class="api-main">
-      <h2 class="api-title">{{clazz}}.{{method}}()
+
+
+      <select class="api-methods" @change="toggleClazz()" v-model="clazz">
+        <option v-for="o in allClazz" :value="o">{{o}}</option>
+      </select>
+
+      <h2 class="api-title" @click="log">{{clazz}}.{{method}}()
 
         <span class="api-tip" v-show="tip">{{tip}}</span>
       </h2>
@@ -14,9 +20,9 @@
 
       <p class="api-code">{{code}}</p>
       <p>
-        <span class="api-quotation">"</span>
+        <span class="api-quotation" v-show="clazz === 'String.prototype'">"</span>
         <input class="api-input" type="text" v-model="val" @input="run"></input>
-        <span class="api-quotation">"</span>
+        <span class="api-quotation"  v-show="clazz === 'String.prototype'">"</span>
         <span class="api-point">.</span>
         <select class="api-methods" @change="toggleMethod()" v-model="method">
           <option v-for="m in allMethods" :value="m">{{m}}</option>
@@ -54,13 +60,21 @@
 
 <script>
 
-import o from './stringData'
+import StringPrototypeData from './StringPrototypeData'
+import NumberPrototypeData from './NumberPrototypeData'
+
+let o = {
+  'String.prototype':StringPrototypeData,
+  'Number.prototype':NumberPrototypeData,
+}
+
 
 export default {
   name: 'api-string',
   created(){
 
-    this.allMethods = Object.keys(o)
+    this.allMethods = Object.keys(StringPrototypeData)
+    this.data = StringPrototypeData
 
     this.method = 'slice'
     this.toggleMethod()
@@ -71,6 +85,8 @@ export default {
   },
   data(){
     return {
+      allClazz: ['String.prototype','Number.prototype'],
+      data:null,
       clazz:'String.prototype',
       val: 'Hello world!',
       errText:null,
@@ -107,12 +123,40 @@ export default {
             break;
         }
       }).filter(a=>{return a!==undefined}).join(',')
-      return `"${this.val}".${this.method}(${par}) => ${this.output}`
+
+      let leftQ = ''
+      let rightQ = ''
+
+      switch (this.clazz) {
+        case 'String.prototype':
+          leftQ = '"'
+          rightQ = '"'
+          break;
+        case 'Number.prototype':
+          leftQ = '('
+          rightQ = ')'
+          break;
+        default:
+          // statements_def
+          break;
+      }
+
+
+      return `${leftQ}${this.val}${rightQ}.${this.method}(${par}) => ${this.output}`
     }
   },
   methods:{
+    toggleClazz(){
+      this.allMethods = Object.keys(o[this.clazz])
+      this.data = o[this.clazz]
+
+      this.val = 8844.43
+      this.method = this.allMethods[0]
+
+      this.toggleMethod()
+    },
     toggleMethod(){
-      let d = o[this.method]
+      let d = this.data[this.method]
       this.usage = d.usage
       this.grammar = d.grammar
       this.paramActive = null
@@ -156,12 +200,42 @@ export default {
       }
 
 
-
     },
     run(){
       let params = this.paramsTrue
-      console.log(this.method,...params)
-      let output = this.val[this.method](...params)
+      let val = this.val
+
+
+      switch (this.clazz) {
+        case 'Number.prototype':
+          val = +val
+          if (Object.is(val,NaN)) {
+            this.errText = '请输入 Number 类型'
+            return
+          } else {
+            this.errText = null
+          }
+          break
+        case 'String.prototype': 
+          val = val.toString()
+          break
+      }
+
+
+
+
+      console.log(val,this.method,...params)
+
+      let output
+
+      try {
+        output = val[this.method](...params)
+      } catch(e) {
+
+        this.errText = e.toString()
+        console.error(e);
+      }
+      
       if (this.outputType !== 'String') {
 
       } else {
@@ -169,6 +243,7 @@ export default {
       }
       this.output = output
       this.$forceUpdate()
+
     },
     log(){
       console.log(this)
@@ -181,6 +256,7 @@ export default {
   
 
 .api-title {
+  margin-top: 20px;
   font-family: x-locale-heading-primary,zillaslab,Palatino,"Palatino Linotype",x-locale-heading-secondary,serif;
   font-size: 32px;
 }
@@ -283,7 +359,7 @@ export default {
   }
   .api-grammar {
     font-size: 16px;
-    padding: 20px 0;
+    padding: 10px 0;
     margin: 0;
     text-align: center;
   }
