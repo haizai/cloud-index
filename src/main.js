@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 
 import './style/reset.css'
+import './style/prism.css'
+
 
 Vue.config.productionTip = false
 
