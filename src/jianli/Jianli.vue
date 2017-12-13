@@ -6,7 +6,10 @@
     <h2 class="jianli-title">{{title}}</h2>
     <p class="jianli-tip" v-html="tip"></p>
     <div v-for="p in ps">
-      <p class="jianli-p">{{p.txt}}</p>
+      <p class="jianli-p">
+        {{p.txt}}
+        <a v-if="p.github" :href="p.github" target="_black">github</a>
+      </p>
       <pre class="jianli-code language-js" v-html="highlight(p.more)"></pre>
     </div>
   </div>
@@ -37,6 +40,11 @@ export default {
 
   created(){
     this.dealQuerys()
+  },
+  watch: {
+    '$route.query'(val){
+      this.dealQuerys()
+    }
   },
   methods:{
     log(){
@@ -76,9 +84,19 @@ export default {
 .jianli-p {
   line-height: 2;
   font-size: 16px;
+  padding: 0 10px;
 }
+.jianli-p a {
+  color: #555;
+  border-bottom: 1px solid #999;
+}
+.jianli-p a:hover {
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+
 .jianli-code {
-  font-size: 16px;
+  font-size: 14px;
   margin: 10px;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -88,9 +106,26 @@ export default {
 .jianli-tip {
   font-size: 16px;
   margin: 20px 0;
+  padding: 10px;
+  border-bottom: 2px dashed;
 }
 .jianli-tip a {
   color: #42b983;
+}
+.jianli-tip a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 800px) {
+  #jianli {
+    width: 100%;
+  }
+  .jianli-p {
+    font-size: 14px;
+  }
+  .jianli-code {
+    font-size: 12px;
+  }
 }
 
 </style>
