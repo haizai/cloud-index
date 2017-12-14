@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '../index/Index'
 import Api from '../api/Api'
-import Jianli from '../jianli/Jianli'
+
+import JianliRoutes from '../jianli/routes'
 
 
 Vue.use(Router)
@@ -19,10 +20,6 @@ export default new Router({
       name: 'Api',
       component: Api
     },
-    {
-      path: '/jianli',
-      name: 'Jianli',
-      component: Jianli
-    },
+    JianliRoutes,
   ]
 })

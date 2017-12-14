@@ -1,72 +1,13 @@
 <template>
   <div id="jianli">
-    <h1 @click='log'>jianli</h1>
-    <p>{{$route.query}}</p>
-
-    <h2 class="jianli-title">{{title}}</h2>
-    <p class="jianli-tip" v-html="tip"></p>
-    <div v-for="p in ps">
-      <p class="jianli-p">
-        {{p.txt}}
-        <a v-if="p.github" :href="p.github" target="_black">github</a>
-      </p>
-      <pre class="jianli-code language-js" v-html="highlight(p.more)"></pre>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 
-
-
-
-var Prism = require('prismjs');
-
-import QueryName from  './QueryName.js'
-
-
-
 export default {
   name: 'jianli',
-
-  data(){
-    return {
-      content: {},
-      title:'',
-      tip:'',
-      ps:[]
-    }
-  },
-
-  created(){
-    this.dealQuerys()
-  },
-  watch: {
-    '$route.query'(val){
-      this.dealQuerys()
-    }
-  },
-  methods:{
-    log(){
-      console.log(this)
-    },
-    dealQuerys(){
-      let q = this.$route.query
-      console.log(QueryName)
-      if (q.name) {
-        let d = QueryName[q.name]
-        this.render(d)
-      }
-    },
-    render(d) {
-      this.title = d.title
-      this.ps = d.ps
-      this.tip = d.tip
-    },
-    highlight(code) {
-      return Prism.highlight(code, Prism.languages.javascript);
-    }
-  },
 }
 </script>
 
@@ -78,26 +19,27 @@ export default {
 }
 
 .jianli-title {
+  margin-top: 20px;
   text-align: center;
   font-size: 32px;
 }
 .jianli-p {
+  margin-top: 20px;
   line-height: 2;
   font-size: 16px;
   padding: 0 10px;
 }
-.jianli-p a {
+.jianli-github {
   color: #555;
   border-bottom: 1px solid #999;
 }
-.jianli-p a:hover {
+.jianli-github:hover {
   color: #000;
   border-bottom: 1px solid #000;
 }
 
 .jianli-code {
   font-size: 14px;
-  margin: 10px;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
