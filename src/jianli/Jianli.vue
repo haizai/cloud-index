@@ -44,17 +44,22 @@ export default {
   word-wrap: break-word;
 }
 
-
+.jianli-innerLink {
+  color: #136ec2;
+}
+.jianli-innerLink:hover {
+  text-decoration: underline;
+}
 .jianli-tip {
   font-size: 16px;
   margin: 20px 0;
   padding: 10px;
   border-bottom: 2px dashed;
 }
-.jianli-tip a {
+.jianli-outerLink{
   color: #42b983;
 }
-.jianli-tip a:hover {
+.jianli-outerLink:hover {
   text-decoration: underline;
 }
 

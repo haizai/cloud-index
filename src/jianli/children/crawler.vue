@@ -2,10 +2,10 @@
   <div>
     <h2 class="jianli-title">爬虫</h2>
     <p class="jianli-tip">
-      本例为本人2015年底在 
-      <a target="_black" href="https://movie.douban.com/tv/#!type=tv&tag=%E6%97%A5%E5%89%A7&sort=recommend&page_limit=20&page_start=0">豆瓣热门日本动画</a> 
+      本例为本人2015年底在
+      <Outer href="https://movie.douban.com/tv/#!type=tv&tag=%E6%97%A5%E5%89%A7&sort=recommend&page_limit=20&page_start=0" text="豆瓣热门日本动画"/>
       的爬虫, 后来我将爬虫所得的数据改写成一个
-      <a target="_black" href="http://182.254.151.128/animes#/">数据展示页</a>,
+      <Outer href="http://182.254.151.128/animes#/" text="数据展示页"/>,
       <Github href="https://github.com/haizai/crawler/blob/master/douban-anime/app.js"></Github>  
     </p>
       <p class="jianli-p">
@@ -100,9 +100,11 @@ var init = function(id, cb) {
 <script>
   import More from '../components/More';
   import Github from '../components/Github';
+  import Inner from '../components/Inner';
+  import Outer from '../components/Outer';
   import Prism from 'prismjs';
   export default {
-    components:{More,Github},
+    components:{More,Github,Inner,Outer},
     methods:{highlight(code) {return Prism.highlight(code, Prism.languages.javascript);}},
   }
 </script>

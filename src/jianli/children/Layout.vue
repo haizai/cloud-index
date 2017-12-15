@@ -25,9 +25,11 @@
 <script>
   import More from '../components/More';
   import Github from '../components/Github';
+  import Inner from '../components/Inner';
+  import Outer from '../components/Outer';
   import Prism from 'prismjs';
   export default {
-    components:{More,Github},
+    components:{More,Github,Inner,Outer},
     methods:{highlight(code) {return Prism.highlight(code, Prism.languages.javascript);}},
   }
 </script>

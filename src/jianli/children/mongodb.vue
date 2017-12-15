@@ -1,11 +1,11 @@
 <template>
   <div>
     <h2 class="jianli-title">
-      mongodb数据库
+      MongoDB数据库
     </h2>
 
     <p class="jianli-tip">
-      
+      MongoDB是一个基于分布式文件存储的非关系数据库。他支持的是类似json的bson数据结构，查询语言非常强大，并且对nodejs相性较好。下文是对nodejs中使用mongodb一些介绍和实践
     </p>
 
     <p class="jianli-p">

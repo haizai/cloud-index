@@ -1,6 +1,7 @@
 import Jianli from './Jianli'
 import crawler from './children/crawler'
 import mongodb from './children/mongodb'
+import ajax from './children/ajax'
 
 
 export default {
@@ -10,5 +11,6 @@ export default {
   children: [
     {path: 'crawler',component: crawler},
     {path: 'mongodb',component: mongodb},
+    {path: 'ajax',component: ajax},
   ],
 }
