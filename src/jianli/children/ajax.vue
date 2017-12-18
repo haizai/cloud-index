@@ -3,9 +3,8 @@
     <h2 class="jianli-title">
       ajax
     </h2>
-
     <p class="jianli-tip">
-      
+      Ajax，是客户端和服务器的非阻塞的交互方式，可以在不重新加载整个网页的情况下，对网页的一部分进行一部更新。
     </p>
 
     <p class="jianli-p">

@@ -1,0 +1,3 @@
+[1217/161517.772:ERROR:http_transport_win.cc(273)] WinHttpSendRequest: 操作超时 (0x2ee2)
+[1217/190946.372:ERROR:http_transport_win.cc(273)] WinHttpSendRequest: 操作超时 (0x2ee2)
+[1217/234642.114:ERROR:http_transport_win.cc(273)] WinHttpSendRequest: 操作超时 (0x2ee2)

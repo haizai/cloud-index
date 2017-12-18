@@ -2,6 +2,7 @@
   <div>
     <h2 class="jianli-title">爬虫</h2>
     <p class="jianli-tip">
+      爬虫（crawler），是一种按照一定的规则，自动地抓取互联网信息的程序。
       本例为本人2015年底在
       <Outer href="https://movie.douban.com/tv/#!type=tv&tag=%E6%97%A5%E5%89%A7&sort=recommend&page_limit=20&page_start=0" text="豆瓣热门日本动画"/>
       的爬虫, 后来我将爬虫所得的数据改写成一个
