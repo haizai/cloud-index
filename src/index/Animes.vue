@@ -47,7 +47,7 @@
             <a href="/animes#/2043155">查看详情</a>
           </p>
         </div>
-        <div class="animes-item" @mouseenter="hover5 = true" @mouseleave="hover5 = false">
+        <div class="animes-item animes-small-item" @mouseenter="hover5 = true" @mouseleave="hover5 = false">
           <div class="animes-image animes-image-5349275"></div>
           <div class="animes-item-bg" :class="{'animes-item-bg-hover':hover5}"></div>
           <h3 class="animes-item-title" :class="{'animes-item-title-hover':hover5}">魔法少女小圆</h3>
@@ -252,6 +252,9 @@ export default {
     .animes-item {
       width: 48vw;
       height: 69vw;
+    }
+    .animes-small-item {
+      display: none;
     }
     .animes-item-title {
       font-size: 20px;

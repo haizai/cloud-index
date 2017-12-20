@@ -29,7 +29,7 @@ code {
   border-radius: 5px;
 }
 a {
-  color: #333;
+  color: inherit;
 }
 input {
   font-family: Microsoft YaHei,Arial,Helvetica,sans-serif;

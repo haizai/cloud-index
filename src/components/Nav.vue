@@ -1,14 +1,28 @@
 <template>
 	<div>
 	  <div class="nav">
-	    <span class="nav-title">Haizainaive</span>
+	    <a a href="./alpha" class="nav-title">Haizainaive</a>
 	    <ul class="nav-pc">
+
+	    	<li class="nav-pc-item" @mouseenter="jianliHover = true" @mouseleave="jianliHover = false">
+	    		<span :class="{'nav-pc-item-name-hover':jianliHover}">技术栈</span>
+	    		<div class="nav-pc-item-more" v-show="jianliHover">
+	    			<a href="./alpha#/jianli/ajax"><p>ajax</p></a>
+	    			<a href="./alpha#/jianli/session"><p>session</p></a>
+	    			<a href="./alpha#/jianli/crawler"><p>爬虫</p></a>
+	    			<a href="./alpha#/jianli/ejs"><p>ejs模板引擎</p></a>
+	    			<a href="./alpha#/jianli/mongodb"><p>mongodb数据库</p></a>
+	    			<a href="./alpha#/jianli/socket"><p>socket</p></a>
+	    		</div>
+	    	</li>
+
 	    	<li class="nav-pc-item" @mouseenter="cssHover = true" @mouseleave="cssHover = false">
 	    		<span :class="{'nav-pc-item-name-hover':cssHover}">css案例</span>
 	    		<div class="nav-pc-item-more" v-show="cssHover">
 	    			<a href="/demo/flex/flex.html" target="_blank"><p>flex布局</p></a>
 	    			<a href="/demo/transform/dist/index.html" target="_blank"><p>transform矩阵变换</p></a>
-	    			<a href="/demo/center/center.html" target="_blank"><p>水平垂直居中</p></a>
+	    			<a href="/demo/center/center.html" target="_blank"><p>css居中方案</p></a>
+	    			<a href="/demo/colorPicker/colorPicker.html" target="_blank"><p>color获取器</p></a>
 	    		</div>
 	    	</li>
 	    	<li class="nav-pc-item" @mouseenter="gameHover = true" @mouseleave="gameHover = false">
@@ -16,6 +30,7 @@
 	    		<div class="nav-pc-item-more" v-show="gameHover">
 	    			<a href="/demo/sokoban/game.html" target="_blank"><p>扫雷</p></a>
 	    			<a href="/demo/minesweeper/game.html" target="_blank"><p>推箱子</p></a>
+	    			<a href="/demo/touhou/index.html" target="_blank"><p>类东方STG游戏</p></a>
 	    		</div>
 	    	</li>
 	    	<li class="nav-pc-item" @mouseenter="gomokuHover = true" @mouseleave="gomokuHover = false">
@@ -26,28 +41,44 @@
 	    			<a href="/gomoku#/ai"><p>人机对战</p></a>
 	    		</div>
 	    	</li>
-	    	<li>登录</li>
-	    	<li>注册</li>
+	    	<li><a href="./">返回主页</a></li>
 	    </ul>
 	    <i class="nav-right-icon" :class="phoneMoreShow?'icon-close':'icon-category'" @click="phoneMoreShow = !phoneMoreShow"></i>
 	  </div>
 	  <div v-show="phoneMoreShow" class="nav-phone">
-	  	<div @touchstart="cssIn=!cssIn" class="nav-phone-1">css案例 
+
+	  	<div @click="jianliIn=!jianliIn" class="nav-phone-1">技术栈
+	  		<i class="nav-phone-icon" :class="jianliIn?'icon-bottom':'icon-top'"></i>
+	  	</div>
+	  	<a href="./alpha#/jianli/ajax"><div class="nav-phone-2" v-show="jianliIn">ajax</div></a>
+	  	<a href="./alpha#/jianli/session"><div class="nav-phone-2" v-show="jianliIn">session</div></a>
+	  	<a href="./alpha#/jianli/crawler"><div class="nav-phone-2" v-show="jianliIn">爬虫</div></a>
+	  	<a href="./alpha#/jianli/ejs"><div class="nav-phone-2" v-show="jianliIn">ejs模板引擎</div></a>
+	  	<a href="./alpha#/jianli/mongodb"><div class="nav-phone-2" v-show="jianliIn">mongodb数据库</div></a>
+	  	<a href="./alpha#/jianli/socket"><div class="nav-phone-2" v-show="jianliIn">socket</div></a>
+
+
+	  	<div @click="cssIn=!cssIn" class="nav-phone-1">css案例 
 	  		<i class="nav-phone-icon" :class="cssIn?'icon-bottom':'icon-top'"></i>
 	  	</div>
-	  	<div class="nav-phone-2" v-show="cssIn">flex布局</div>
-	  	<div class="nav-phone-2" v-show="cssIn">transform矩阵变换</div>
-	  	<div @touchstart="gameIn=!gameIn" class="nav-phone-1">小游戏 
+	  	<a href="/demo/flex/flex.html"><div class="nav-phone-2" v-show="cssIn">flex布局</div></a>
+	  	<a href="/demo/transform/dist/index.html"><div class="nav-phone-2" v-show="cssIn">transform矩阵变换</div></a>
+	  	<a href="/demo/center/center.html"><div class="nav-phone-2" v-show="cssIn">css居中方案</div></a>
+	  	<a href="/demo/colorPicker/colorPicker.html"><div class="nav-phone-2" v-show="cssIn">color获取器</div></a>
+
+	  	<div @click="gameIn=!gameIn" class="nav-phone-1">小游戏 
 	  		<i class="nav-phone-icon" :class="gameIn?'icon-bottom':'icon-top'"></i>
 	  	</div>
-	  	<div class="nav-phone-2" v-show="gameIn">扫雷</div>
-	  	<div class="nav-phone-2" v-show="gameIn">推箱子</div>
-	  	<div @touchstart="gomokuIn=!gomokuIn" class="nav-phone-1">五子棋 
+	  	<a href="/demo/sokoban/game.html"><div class="nav-phone-2" v-show="gameIn">扫雷</div></a>
+	  	<a href="/demo/minesweeper/game.html"><div class="nav-phone-2" v-show="gameIn">推箱子</div></a>
+	  	<a href="/demo/touhou/index.html"><div class="nav-phone-2" v-show="gameIn">类东方STG游戏</div></a>
+
+	  	<div @click="gomokuIn=!gomokuIn" class="nav-phone-1">五子棋 
 	  		<i class="nav-phone-icon" :class="gomokuIn?'icon-bottom':'icon-top'"></i>
 	  	</div>
-	  	<div class="nav-phone-2" v-show="gomokuIn">单人模式</div>
-	  	<div class="nav-phone-2" v-show="gomokuIn">联机模式</div>
-	  	<div class="nav-phone-2" v-show="gomokuIn">人机对战</div>
+	  	<a href="/gomoku#/outline"><div class="nav-phone-2" v-show="gomokuIn">单人模式</div></a>
+	  	<a href="/gomoku#/online"><div class="nav-phone-2" v-show="gomokuIn">联机模式</div></a>
+	  	<a href="/gomoku#/ai"><div class="nav-phone-2" v-show="gomokuIn">人机对战</div></a>
 	  </div>
 	</div>
 </template>
@@ -59,10 +90,12 @@ export default {
   name: 'nav',
   data(){
   	return {
+  		jianliHover: false,
   		cssHover: false,
   		gameHover: false,
   		gomokuHover: false,
   		phoneMoreShow: false,
+  		jianliIn: false,
   		cssIn: false,
   		gameIn: false,
   		gomokuIn: false,
@@ -168,6 +201,7 @@ export default {
 			height: 50px;
 			padding-left: 40px;
 			font-size: 14px;
+			color: #fff;
 		}
 		.nav-phone-icon {
 	  	width: 24px;

@@ -17,5 +17,6 @@ export default {
     {path: 'ajax',component: ajax},
     {path: 'session',component: session},
     {path: 'ejs',component: ejs},
+    {path: 'socket',component: socket},
   ],
 }
